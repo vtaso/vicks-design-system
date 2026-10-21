@@ -25,6 +25,9 @@ jobs:
         run: npm run lint:hardcoded
       - name: Stylelint (CSS must use var(--…))
         run: npm run lint:css
+      - name: Write a readable summary on this run's page
+        if: always()
+        run: npm run report >/dev/null && cat reports/summary.md >> "$GITHUB_STEP_SUMMARY"
 
   code-connect:
     name: Code Connect checks
