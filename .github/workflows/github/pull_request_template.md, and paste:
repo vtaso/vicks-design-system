@@ -1,0 +1,10 @@
+## What changed
+
+<!-- One or two lines. -->
+
+## Design system checklist
+
+- [ ] Tokens re-exported from Figma if variables changed
+- [ ] Renamed a Figma component property? The `.figma.ts` template is updated in this same PR
+- [ ] Every `token-lint-disable-line` has a real reason after it
+- [ ] CI is green (Token linting layer + Code Connect checks)
