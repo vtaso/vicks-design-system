@@ -1,0 +1,10 @@
+{
+  "plugins": ["stylelint-declaration-strict-value"],
+  "rules": {
+    "color-no-hex": true,
+    "scale-unlimited/declaration-strict-value": [
+      ["/color$/", "fill", "stroke", "/^padding/", "/^margin/", "gap", "border-radius", "font-size", "line-height", "min-height", "font-family"],
+      { "ignoreValues": ["transparent", "inherit", "currentColor", "none", "0", "auto"], "disableFix": true }
+    ]
+  }
+}
