@@ -1,0 +1,46 @@
+# Weekly design system health report.
+# Every Monday morning it runs all checks in report mode (it never fails the build),
+# then posts the summary as a comment on one pinned GitHub issue, "Design system health".
+# Watching that issue = a weekly email with the numbers. Run it any time from the Actions tab.
+name: Design system health report
+
+on:
+  schedule:
+    - cron: '52 12 * * 1'   # Mondays 12:52 UTC (8:52 AM Eastern in summer, 7:52 AM in winter)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  report:
+    name: Weekly health report
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: npm }
+      - run: npm ci
+      - run: npm run tokens:build
+      - name: Run every check in report mode
+        run: npm run report
+      - name: Show the report on this run's page
+        run: cat reports/summary.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Keep the raw numbers (90 days)
+        uses: actions/upload-artifact@v4
+        with:
+          name: health-report-${{ github.run_number }}
+          path: reports/
+          retention-days: 90
+      - name: Post to the "Design system health" issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create ds-health --color 1F3864 --description "Weekly design system health report" --force
+          n=$(gh issue list --label ds-health --state open --json number --jq '.[0].number')
+          if [ -z "$n" ]; then
+            n=$(gh issue create --title "Design system health" --label ds-health \
+              --body "Weekly health reports land here as comments. Watch this issue to get them by email." | sed 's#.*/##')
+          fi
+          gh issue comment "$n" --body-file reports/summary.md
