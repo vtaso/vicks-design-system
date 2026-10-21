@@ -1,0 +1,16 @@
+[
+  "T4:color/dark.json:color.border.action",
+  "T4:color/dark.json:color.border.action-hover",
+  "T4:color/dark.json:color.border.focus",
+  "T4:color/dark.json:color.border.success",
+  "T4:color/dark.json:color.icon.disabled",
+  "T4:color/dark.json:color.surface.action-hover",
+  "T4:color/dark.json:color.surface.action-hover-light",
+  "T4:color/dark.json:color.text.disabled",
+  "T4:color/dark.json:color.text.heading",
+  "T4:color/light.json:color.border.action-hover",
+  "T4:color/light.json:color.surface.action-hover",
+  "T4:color/light.json:color.surface.action-hover-light",
+  "T4:color/light.json:color.surface.page",
+  "T4:color/light.json:color.text.action-hover"
+]
