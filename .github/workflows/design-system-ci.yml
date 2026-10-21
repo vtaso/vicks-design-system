@@ -1,0 +1,64 @@
+# Design system guardrails — runs on every pull request.
+# A failing job blocks the merge once you turn on branch protection
+# (Settings → Branches → Add rule → Require status checks → pick these jobs).
+name: Design system CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  tokens:
+    name: Token linting layer
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: npm }
+      - run: npm ci
+      - name: Build tokens for web, Android and iOS
+        run: npm run tokens:build
+      - name: Naming + layering rules (T1–T6)
+        run: npm run lint:token-names
+      - name: No hardcoded colors or sizes in React, Kotlin, Swift
+        run: npm run lint:hardcoded
+      - name: Stylelint (CSS must use var(--…))
+        run: npm run lint:css
+
+  code-connect:
+    name: Code Connect checks
+    runs-on: ubuntu-latest
+    env:
+      FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: npm }
+      - run: npm ci
+      - name: Templates compile (syntax + Template API types)
+        run: npm run typecheck
+      - name: Templates are discoverable and parse
+        run: npm run connect:parse
+      - name: Code side — template props still exist on the component
+        run: npm run connect:contract
+      # Figma side — property names in templates still exist in the Figma file.
+      # Needs a Figma token stored as a repo secret named FIGMA_ACCESS_TOKEN.
+      - name: Figma side — validate against the Figma file (dry run)
+        if: ${{ env.FIGMA_ACCESS_TOKEN != '' }}
+        run: npm run connect:validate
+
+  publish-code-connect:
+    name: Publish Code Connect to Figma
+    needs: [tokens, code-connect]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    env:
+      FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: npm }
+      - run: npm ci
+      - if: ${{ env.FIGMA_ACCESS_TOKEN != '' }}
+        run: npm run connect:publish
