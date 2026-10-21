@@ -1,0 +1,28 @@
+{
+  "name": "vicks-design-system",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Practice repo: tokens from Figma, multi-platform build, token linting and Code Connect checks in CI.",
+  "scripts": {
+    "tokens:build": "node scripts/build-tokens.mjs",
+    "lint:token-names": "node scripts/lint-token-names.mjs",
+    "lint:hardcoded": "node scripts/lint-hardcoded.mjs",
+    "lint:css": "stylelint \"src/**/*.css\"",
+    "typecheck": "tsc --noEmit",
+    "connect:parse": "figma connect parse --exit-on-unreadable-files --outFile build/code-connect.json",
+    "connect:contract": "node scripts/check-code-connect.mjs",
+    "connect:validate": "figma connect publish --dry-run --exit-on-unreadable-files",
+    "connect:publish": "figma connect publish --exit-on-unreadable-files",
+    "ci": "npm run tokens:build && npm run lint:token-names && npm run lint:hardcoded && npm run lint:css && npm run typecheck && npm run connect:parse && npm run connect:contract"
+  },
+  "devDependencies": {
+    "@figma/code-connect": "^2.0.2",
+    "@types/react": "^18.3.0",
+    "react": "^18.3.0",
+    "style-dictionary": "^4.3.0",
+    "stylelint": "^16.10.0",
+    "stylelint-declaration-strict-value": "^1.10.0",
+    "typescript": "^5.6.0"
+  }
+}

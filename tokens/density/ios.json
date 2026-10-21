@@ -1,0 +1,19 @@
+{
+  "density": {
+    "padding-touch": {
+      "$type": "dimension",
+      "$value": "16px",
+      "$description": "Inner padding for touch targets per platform (Web 12 · iOS 16 · Android 16 · POS 24)."
+    },
+    "height-button": {
+      "$type": "dimension",
+      "$value": "44px",
+      "$description": "Minimum button height per platform. iOS ≥44, Android ≥48, POS larger for fast, gloved or one-handed use."
+    },
+    "gap-container": {
+      "$type": "dimension",
+      "$value": "12px",
+      "$description": "Gap between items inside containers per platform."
+    }
+  }
+}

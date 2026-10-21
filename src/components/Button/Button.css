@@ -1,0 +1,22 @@
+/* Every value comes from a generated token (build/web/tokens.css). No hex, no raw px. */
+.ds-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--density-gap-container);
+  min-height: var(--density-height-button);
+  padding: 0 var(--density-padding-touch);
+  border-radius: var(--alias-border-radius-md);
+  border: var(--alias-border-width-thin) solid var(--color-border-action);
+  font-family: var(--alias-font-family-body);
+  font-size: var(--typography-paragraph-medium-font-size);
+  line-height: var(--typography-paragraph-medium-line-height);
+  cursor: pointer;
+}
+.ds-button--primary { background-color: var(--color-surface-action); color: var(--color-text-on-action); }
+.ds-button--primary:hover { background-color: var(--color-surface-action-hover); border-color: var(--color-border-action-hover); }
+.ds-button--outline { background-color: var(--color-surface-default-secondary); color: var(--color-text-action); }
+.ds-button--outline:hover { background-color: var(--color-surface-action-hover-light); color: var(--color-text-action-hover); }
+.ds-button--transparent { background-color: transparent; border-color: transparent; color: var(--color-text-action); }
+.ds-button--transparent:hover { background-color: var(--color-surface-action-hover-light); }
+.ds-button:focus-visible { outline: var(--alias-border-width-medium) solid var(--color-border-focus); outline-offset: var(--alias-border-width-medium); }
+.ds-button:disabled { background-color: var(--color-surface-disabled); border-color: var(--color-border-disabled); color: var(--color-text-disabled); cursor: not-allowed; }

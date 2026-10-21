@@ -1,0 +1,232 @@
+{
+  "color": {
+    "surface": {
+      "page": {
+        "$type": "color",
+        "$value": "{brand.foundation.white}",
+        "$description": "Page-level background behind all content. Use on the root frame of every screen."
+      },
+      "default": {
+        "$type": "color",
+        "$value": "{alias.neutral.50}",
+        "$description": "Base surface for cards, panels and containers that sit on the page."
+      },
+      "default-secondary": {
+        "$type": "color",
+        "$value": "{alias.foundations.white}",
+        "$description": "Alternate surface for grouping or layering content inside a default surface."
+      },
+      "action": {
+        "$type": "color",
+        "$value": "{alias.primary.500}",
+        "$description": "Background for primary interactive elements such as primary buttons."
+      },
+      "action-hover": {
+        "$type": "color",
+        "$value": "{brand.purple.800}",
+        "$description": "Hover/pressed background for primary interactive elements."
+      },
+      "action-hover-light": {
+        "$type": "color",
+        "$value": "{brand.purple.200}",
+        "$description": "Subtle hover background for low-emphasis actions (ghost/tertiary buttons, list rows)."
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{alias.success.50}",
+        "$description": "Background for success messages, banners and confirmation states."
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{alias.error.50}",
+        "$description": "Background for error messages, banners and failed states."
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{alias.warning.50}",
+        "$description": "Background for warning messages and caution states."
+      },
+      "information": {
+        "$type": "color",
+        "$value": "{alias.information.50}",
+        "$description": "Background for informational messages and neutral status."
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{alias.neutral.50}",
+        "$description": "Background for disabled or inactive controls."
+      }
+    },
+    "border": {
+      "default": {
+        "$type": "color",
+        "$value": "{alias.neutral.100}",
+        "$description": "Default border for inputs, cards and dividers."
+      },
+      "action": {
+        "$type": "color",
+        "$value": "{alias.primary.700}",
+        "$description": "Border for interactive elements such as secondary buttons and selected inputs."
+      },
+      "action-hover": {
+        "$type": "color",
+        "$value": "{brand.purple.950}",
+        "$description": "Border on hover for interactive elements."
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{alias.success.500}",
+        "$description": "Border for success states (valid input, success banner)."
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{alias.error.500}",
+        "$description": "Border for error states (invalid input, error banner). Never the only error signal — pair with icon and text."
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{alias.warning.500}",
+        "$description": "Border for warning states."
+      },
+      "information": {
+        "$type": "color",
+        "$value": "{alias.information.500}",
+        "$description": "Border for informational states."
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{alias.neutral.500}",
+        "$description": "Border for disabled controls."
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{alias.primary.500}",
+        "$description": "Focus ring for keyboard focus. Must stay visible on every interactive element (WCAG 2.4.7)."
+      }
+    },
+    "text": {
+      "heading": {
+        "$type": "color",
+        "$value": "{alias.neutral.900}",
+        "$description": "Headings H1–H6."
+      },
+      "body": {
+        "$type": "color",
+        "$value": "{alias.neutral.700}",
+        "$description": "Body copy and paragraph text."
+      },
+      "caption": {
+        "$type": "color",
+        "$value": "{alias.neutral.500}",
+        "$description": "Captions, helper text and secondary metadata."
+      },
+      "placeholder": {
+        "$type": "color",
+        "$value": "{alias.neutral.400}",
+        "$description": "Placeholder text inside inputs. Not a replacement for a label."
+      },
+      "on-action": {
+        "$type": "color",
+        "$value": "{alias.foundations.white}",
+        "$description": "Text that sits on Surface/action (e.g. primary button label)."
+      },
+      "on-action-hover": {
+        "$type": "color",
+        "$value": "{alias.foundations.white}",
+        "$description": "Text that sits on Surface/action-hover."
+      },
+      "action": {
+        "$type": "color",
+        "$value": "{alias.primary.500}",
+        "$description": "Text links and text-style actions."
+      },
+      "action-hover": {
+        "$type": "color",
+        "$value": "{brand.purple.800}",
+        "$description": "Hover state for text links and text-style actions."
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{alias.success.600}",
+        "$description": "Success message text."
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{alias.error.800}",
+        "$description": "Error message and validation text."
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{alias.warning.700}",
+        "$description": "Warning message text."
+      },
+      "information": {
+        "$type": "color",
+        "$value": "{alias.information.600}",
+        "$description": "Informational message text."
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{alias.neutral.500}",
+        "$description": "Text on disabled controls."
+      }
+    },
+    "icon": {
+      "default": {
+        "$type": "color",
+        "$value": "{alias.neutral.700}",
+        "$description": "Default icon color."
+      },
+      "placeholder": {
+        "$type": "color",
+        "$value": "{alias.neutral.400}",
+        "$description": "Icons inside empty inputs (e.g. search icon)."
+      },
+      "on-action": {
+        "$type": "color",
+        "$value": "{alias.foundations.white}",
+        "$description": "Icons that sit on Surface/action."
+      },
+      "on-action-hover": {
+        "$type": "color",
+        "$value": "{alias.foundations.white}",
+        "$description": "Icons that sit on Surface/action-hover."
+      },
+      "action": {
+        "$type": "color",
+        "$value": "{alias.primary.500}",
+        "$description": "Interactive icons (icon buttons, links)."
+      },
+      "action-hover": {
+        "$type": "color",
+        "$value": "{alias.primary.600}",
+        "$description": "Hover state for interactive icons."
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{alias.success.600}",
+        "$description": "Success status icon."
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{alias.error.800}",
+        "$description": "Error status icon."
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{alias.warning.700}",
+        "$description": "Warning status icon."
+      },
+      "information": {
+        "$type": "color",
+        "$value": "{alias.information.600}",
+        "$description": "Informational status icon."
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{alias.neutral.500}",
+        "$description": "Icons on disabled controls."
+      }
+    }
+  }
+}

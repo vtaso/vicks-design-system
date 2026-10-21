@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+  <script>
+    try { window.localStorage.getItem('x') } catch (e) {
+      const store = new Map()
+      const shim = { getItem: k => store.has(k) ? store.get(k) : null, setItem: (k, v) => { store.set(k, String(v)) }, removeItem: k => { store.delete(k) }, clear: () => store.clear(), key: i => Array.from(store.keys())[i] ?? null, get length() { return store.size } }
+      Object.defineProperty(window, 'localStorage', { value: shim, configurable: true })
+    }
+  </script>
+  <style>
+    html, body { margin: 0; padding: 0; height: auto; min-height: 0; }
+    body { display: block; }
+    #plugin-root { height: auto; }
+    body > #plugin-root > fig-footer {
+      background-color: var(--figma-color-bg);
+      box-shadow: inset 0 1px 0 0 var(--figma-color-border);
+      border-radius: 0 0 var(--radius-large) var(--radius-large);
+    }
+    .note { font-family: var(--font-family); font-size: 11px; color: var(--figma-color-text-secondary); line-height: 16px; margin: 0; }
+    #status { font-family: var(--font-family); font-size: 11px; color: var(--figma-color-text-secondary); }
+    #status.err { color: var(--figma-color-text-danger); }
+  </style>
+</head>
+<body>
+  <div id="plugin-root">
+    <fig-content>
+      <p class="note">Rebuilds the page named below from your live variables. Anything already on that page is replaced.</p>
+      <fig-field>
+        <label>Page name</label>
+        <fig-input-text id="pageName" value="Tokens"></fig-input-text>
+      </fig-field>
+      <fig-group name="Collections" id="cols"></fig-group>
+      <fig-field>
+        <label>Dark mode columns</label>
+        <fig-input-text id="darkModes" value="Dark"></fig-input-text>
+      </fig-field>
+      <fig-field>
+        <label>Preview mode</label>
+        <fig-input-text id="previewMode" value="Brand A"></fig-input-text>
+      </fig-field>
+    </fig-content>
+    <fig-footer sticky>
+      <label id="status">Loading collections…</label>
+      <fig-button id="run" type="submit" disabled>Rebuild page</fig-button>
+    </fig-footer>
+  </div>
+  <script>
+    const post = m => parent.postMessage({ pluginMessage: m }, '*')
+    const $ = id => document.getElementById(id)
+    const status = (t, err) => { $('status').textContent = t; $('status').className = err ? 'err' : '' }
+    let names = []
+
+    window.onmessage = e => {
+      const m = e.data.pluginMessage; if (!m) return
+      if (m.type === 'init') {
+        names = m.collections.map(c => c.name)
+        const s = m.settings
+        $('pageName').setAttribute('value', s.pageName)
+        $('darkModes').setAttribute('value', s.darkModes)
+        $('previewMode').setAttribute('value', s.previewMode)
+        $('cols').innerHTML = ''
+        m.collections.forEach((c, i) => {
+          const f = document.createElement('fig-field'); f.setAttribute('direction', 'horizontal')
+          const l = document.createElement('label'); l.textContent = `${c.name} (${c.count})`
+          const sw = document.createElement('fig-switch'); sw.id = 'col' + i
+          if (s.include.indexOf(c.name) >= 0) sw.setAttribute('checked', '')
+          f.appendChild(l); f.appendChild(sw); $('cols').appendChild(f)
+        })
+        $('run').removeAttribute('disabled')
+        status('Ready')
+      }
+      if (m.type === 'status') status(m.text)
+      if (m.type === 'done') { status(m.text); $('run').removeAttribute('disabled') }
+      if (m.type === 'error') { status(m.text, true); $('run').removeAttribute('disabled') }
+    }
+
+    $('run').addEventListener('click', () => {
+      const include = names.filter((n, i) => { const sw = $('col' + i); return sw && (typeof sw.checked === 'boolean' ? sw.checked : sw.hasAttribute('checked')) })
+      $('run').setAttribute('disabled', '')
+      status('Building…')
+      post({ type: 'run', settings: {
+        pageName: String($('pageName').value || 'Tokens'),
+        include,
+        darkModes: String($('darkModes').value || ''),
+        previewMode: String($('previewMode').value || ''),
+      } })
+    })
+
+    let last = 0, raf = 0
+    new ResizeObserver(() => {
+      cancelAnimationFrame(raf)
+      raf = requestAnimationFrame(() => { const h = Math.ceil($('plugin-root').getBoundingClientRect().height); if (h && h !== last) { last = h; post({ type: 'resize', height: h }) } })
+    }).observe($('plugin-root'))
+    post({ type: 'ready' })
+  </script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+{
+  "typography": {
+    "h1": {
+      "font-size": {
+        "$type": "dimension",
+        "$value": "61px"
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "72px"
+      },
+      "paragraph-spacing": {
+        "$type": "dimension",
+        "$value": "32px"
+      },
+      "font-weight": {
+        "$type": "fontWeight",
+        "$value": 700
+      },
+      "letter-spacing": {
+        "$type": "dimension",
+        "$value": "-1.22px"
+      }
+    },
+    "h2": {
+      "font-size": {
+        "$type": "dimension",
+        "$value": "49px"
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "60px"
+      },
+      "paragraph-spacing": {
+        "$type": "dimension",
+        "$value": "28px"
+      },
+      "font-weight": {
+        "$type": "fontWeight",
+        "$value": 700
+      },
+      "letter-spacing": {
+        "$type": "dimension",
+        "$value": "-0.98px"
+      }
+    },
+    "h3": {
+      "font-size": {
+        "$type": "dimension",
+        "$value": "39px"
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "48px"
+      },
+      "paragraph-spacing": {
+        "$type": "dimension",
+        "$value": "20px"
+      },
+      "font-weight": {
+        "$type": "fontWeight",
+        "$value": 600
+      },
+      "letter-spacing": {
+        "$type": "dimension",
+        "$value": "-0.39px"
+      }
+    },
+    "h4": {
+      "font-size": {
+        "$type": "dimension",
+        "$value": "31px"
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "36px"
+      },
+      "paragraph-spacing": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "font-weight": {
+        "$type": "fontWeight",
+        "$value": 600
+      },
+      "letter-spacing": {
+        "$type": "dimension",
+        "$value": "-0.31px"
+      }
+    },
+    "h5": {
+      "font-size": {
+        "$type": "dimension",
+        "$value": "25px"
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "32px"
+      },
+      "paragraph-spacing": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "font-weight": {
+        "$type": "fontWeight",
+        "$value": 600
+      },
+      "letter-spacing": {
+        "$type": "dimension",
+        "$value": "0px"
+      }
+    },
+    "h6": {
+      "font-size": {
+        "$type": "dimension",
+        "$value": "20px"
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "24px"
+      },
+      "paragraph-spacing": {
+        "$type": "dimension",
+        "$value": "12px"
+      },
+      "font-weight": {
+        "$type": "fontWeight",
+        "$value": 600
+      },
+      "letter-spacing": {
+        "$type": "dimension",
+        "$value": "0px"
+      }
+    },
+    "paragraph-large": {
+      "font-size": {
+        "$type": "dimension",
+        "$value": "20px"
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "24px"
+      },
+      "paragraph-spacing": {
+        "$type": "dimension",
+        "$value": "12px"
+      },
+      "font-weight": {
+        "$type": "fontWeight",
+        "$value": 400
+      },
+      "letter-spacing": {
+        "$type": "dimension",
+        "$value": "0px"
+      }
+    },
+    "paragraph-medium": {
+      "font-size": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "20px"
+      },
+      "paragraph-spacing": {
+        "$type": "dimension",
+        "$value": "8px"
+      },
+      "font-weight": {
+        "$type": "fontWeight",
+        "$value": 400
+      },
+      "letter-spacing": {
+        "$type": "dimension",
+        "$value": "0px"
+      }
+    },
+    "paragraph-small": {
+      "font-size": {
+        "$type": "dimension",
+        "$value": "13px"
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "paragraph-spacing": {
+        "$type": "dimension",
+        "$value": "8px"
+      },
+      "font-weight": {
+        "$type": "fontWeight",
+        "$value": 400
+      },
+      "letter-spacing": {
+        "$type": "dimension",
+        "$value": "0px"
+      }
+    },
+    "caption": {
+      "font-size": {
+        "$type": "dimension",
+        "$value": "10px"
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "12px"
+      },
+      "paragraph-spacing": {
+        "$type": "dimension",
+        "$value": "8px"
+      },
+      "font-weight": {
+        "$type": "fontWeight",
+        "$value": 400
+      },
+      "letter-spacing": {
+        "$type": "dimension",
+        "$value": "0.2px"
+      }
+    }
+  }
+}
