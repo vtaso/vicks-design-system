@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 20, cache: npm }
+        with: { node-version: 22, cache: npm }
       - run: npm ci
       - name: Build tokens for web, Android and iOS
         run: npm run tokens:build
@@ -25,9 +25,7 @@ jobs:
         run: npm run lint:hardcoded
       - name: Stylelint (CSS must use var(--…))
         run: npm run lint:css
-      - name: Write a readable summary on this run's page
-        if: always()
-        run: npm run report >/dev/null && cat reports/summary.md >> "$GITHUB_STEP_SUMMARY"
+      
 
   code-connect:
     name: Code Connect checks
@@ -37,7 +35,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 20, cache: npm }
+        with: { node-version: 22, cache: npm }
       - run: npm ci
       - name: Templates compile (syntax + Template API types)
         run: npm run typecheck
@@ -61,7 +59,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 20, cache: npm }
+        with: { node-version: 22, cache: npm }
       - run: npm ci
       - if: ${{ env.FIGMA_ACCESS_TOKEN != '' }}
         run: npm run connect:publish
