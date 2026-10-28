@@ -30,7 +30,11 @@
         "$type": "color",
         "$value": "{brand.purple.200}",
         "$description": "Subtle hover background for low-emphasis actions (ghost/tertiary buttons, list rows)."
-      },
+      },         "action-hover-destructive": {
+           "$type": "color",
+           "$value": "{alias.error.200}",
+           "$description": "Hover background for destructive buttons."
+         },
       "success": {
         "$type": "color",
         "$value": "{alias.success.50}",
