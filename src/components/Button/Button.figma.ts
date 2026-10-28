@@ -8,6 +8,7 @@ const variant = figma.selectedInstance.getEnum("Type", {
   Default: "primary",
   Outline: "outline",
   Transparent: "transparent",
+  Destructive; "destructive",
 })
 const disabled = figma.selectedInstance.getEnum("Status", {
   disabled: true,
