@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import './Button.css'
 
 export type ButtonVariant = 'primary' | 'outline' | 'transparent' | 'Destructive' |
-  '
+
 
 export interface ButtonProps {
   /** Visible label. Figma: "Label" text property. */
