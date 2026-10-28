@@ -18,5 +18,7 @@
 .ds-button--outline:hover { background-color: var(--color-surface-action-hover-light); color: var(--color-text-action-hover); }
 .ds-button--transparent { background-color: transparent; border-color: transparent; color: var(--color-text-action); }
 .ds-button--transparent:hover { background-color: var(--color-surface-action-hover-light); }
+.ds-button--destructive { background-color: var(--color-surface-error); border-color: var(--color-border-error); color: var(--color-text-error); }
+.ds-button--destructive:hover { background-color: var(--color-surface-action-hover-destructive); }
 .ds-button:focus-visible { outline: var(--alias-border-width-medium) solid var(--color-border-focus); outline-offset: var(--alias-border-width-medium); }
 .ds-button:disabled { background-color: var(--color-surface-disabled); border-color: var(--color-border-disabled); color: var(--color-text-disabled); cursor: not-allowed; }
