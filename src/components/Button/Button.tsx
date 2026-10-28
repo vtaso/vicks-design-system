@@ -1,12 +1,12 @@
 import type { ReactNode } from 'react'
 import './Button.css'
 
-export type ButtonVariant = 'primary' | 'outline' | 'transparent'
+export type ButtonVariant = 'primary' | 'outline' | 'transparent' | 'destructive' |
 
 export interface ButtonProps {
   /** Visible label. Figma: "Label" text property. */
   label: string
-  /** Figma: "Type" variant (Default → primary, Outline → outline, Transparent → transparent). */
+  /** Figma: "Type" variant (Default → primary, Outline → outline, Transparent → transparent, Destructive → destructive). */
   variant?: ButtonVariant
   /** Figma: "Status = disabled". Hover and focus are runtime states, not props. */
   disabled?: boolean
